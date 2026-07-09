@@ -1,4 +1,4 @@
-// blocks/faq/faq.js
+// blocks/faq/faq.js test
 export default function decorate(block) {
   const rows = [...block.children];
 
