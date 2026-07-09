@@ -292,5 +292,29 @@
         ]
       }
     ]
+  },
+  {
+    "id": "faq-by-fragment",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Titolo sezione",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Descrizione",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "endpoint",
+        "label": "GraphQL Endpoint",
+        "valueType": "string",
+        "value": "/graphql/execute.json/plenitude-it/faqList"
+      }
+    ]
   }
 ]
