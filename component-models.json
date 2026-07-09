@@ -256,7 +256,6 @@
       }
     ]
   },
-  // component-models.json
   {
     "id": "faq",
     "fields": [
