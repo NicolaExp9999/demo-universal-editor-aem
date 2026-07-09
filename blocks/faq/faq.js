@@ -4,28 +4,49 @@ export default function decorate(block) {
 
   const titleRow = rows.shift();
   const descRow = rows.shift();
+  const itemsRow = rows.shift();
 
   if (titleRow) titleRow.className = 'faq-title';
   if (descRow) descRow.className = 'faq-description';
+  if (!itemsRow) return;
 
-  rows.forEach((row) => {
-    const [questionDiv, answerDiv] = row.children;
-    if (!questionDiv || !answerDiv) return;
+  const container = itemsRow.querySelector('div') || itemsRow;
+  const nodes = [...container.children];
+
+  const groups = [];
+  let current = [];
+  nodes.forEach((node) => {
+    if (node.tagName === 'HR') {
+      if (current.length) groups.push(current);
+      current = [];
+    } else {
+      current.push(node);
+    }
+  });
+  if (current.length) groups.push(current);
+
+  const list = document.createElement('div');
+  list.className = 'faq-list';
+
+  groups.forEach((group) => {
+    if (!group.length) return;
+    const [questionNode, ...answerNodes] = group;
 
     const details = document.createElement('details');
     details.className = 'faq-item';
 
     const summary = document.createElement('summary');
     summary.className = 'faq-question';
-    summary.textContent = questionDiv.textContent.trim();
+    summary.textContent = questionNode.textContent.trim();
 
     const answer = document.createElement('div');
     answer.className = 'faq-answer';
-    answer.innerHTML = answerDiv.innerHTML;
+    answerNodes.forEach((n) => answer.append(n));
 
     details.append(summary, answer);
-    row.replaceWith(details);
+    list.append(details);
   });
 
+  itemsRow.replaceWith(list);
   block.classList.add('faq');
 }
