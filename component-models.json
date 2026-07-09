@@ -260,6 +260,18 @@
     "id": "faq",
     "fields": [
       {
+        "component": "text",
+        "name": "title",
+        "label": "Titolo sezione",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Descrizione",
+        "valueType": "string"
+      },
+      {
         "component": "container",
         "name": "items",
         "label": "FAQ Items",
