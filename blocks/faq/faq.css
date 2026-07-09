@@ -26,39 +26,23 @@
   padding: 16px 8px;
   cursor: pointer;
   font-weight: 600;
-  background: none;
-  border: none;
-  width: 100%;
-  text-align: left;
-  font-size: 1rem;
+  list-style: none;
+}
+
+.faq .faq-question::-webkit-details-marker {
+  display: none;
 }
 
 .faq .faq-question::after {
   content: "+";
   font-size: 1.2rem;
-  transition: transform 0.2s ease;
-  flex-shrink: 0;
   margin-left: 8px;
 }
 
-.faq .faq-item.is-open .faq-question::after {
-  transform: rotate(45deg);
+.faq .faq-item[open] .faq-question::after {
+  content: "−";
 }
 
 .faq .faq-answer {
-  display: grid;
-  grid-template-rows: 0fr;
-  overflow: hidden;
-  transition: grid-template-rows 0.3s ease;
-  padding: 0 8px;
-}
-
-.faq .faq-answer-inner {
-  overflow: hidden;
-  min-height: 0;
-}
-
-.faq .faq-item.is-open .faq-answer {
-  grid-template-rows: 1fr;
-  padding-bottom: 16px;
+  padding: 0 8px 16px;
 }
