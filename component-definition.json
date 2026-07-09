@@ -173,7 +173,13 @@
               }
             }
           }
-        },
+        }
+      ]
+    },
+    {
+      "title": "General Components",
+      "id": "general",
+      "components": [
         {
           "title": "FAQ",
           "id": "faq",
