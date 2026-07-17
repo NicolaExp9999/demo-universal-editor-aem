@@ -262,6 +262,7 @@
       {
         "component": "text",
         "name": "title",
+        "id":"faq-title",
         "label": "Titolo sezione",
         "valueType": "string"
       },
